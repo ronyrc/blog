@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Row, Col } from "reactstrap";
 import Sidebar from '../components/Sidebar';
 import Post from '../components/Post';
-import { Route } from '../../../myapp-router/node_modules/react-router-dom';
+import { Route } from 'react-router-dom';
 import postsDb from '../db';
 import faker from "faker";
 import ModalForm from '../components/ModalForm';

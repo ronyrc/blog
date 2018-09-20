@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
 import faker from "faker";
-import { NavLink } from '../../../myapp-router/node_modules/react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class Sidebar extends Component {
   render() {
