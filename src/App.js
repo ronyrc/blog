@@ -1,47 +1,43 @@
 import React, { Component } from 'react';
 import './App.css';
-import PostsContainer from './containers/PostsContainer';
-import Home from './containers/Home';
-import About from './containers/About';
-import { Route, NavLink as NavLinkRouter, Switch } from 'react-router-dom';
-import { Container, Nav, NavLink } from "reactstrap";
+import { Button, Container } from "reactstrap";
 
 const MenuBar = ({ match }) => {
   
-  return <Nav>
-      <NavLink tag={NavLinkRouter} exact to="/" activeStyle={{ fontWeight: "bold", color: "red" }}>
-        Home
-      </NavLink>
-      <NavLink tag={NavLinkRouter}  to="/posts" activeStyle={{ fontWeight: "bold", color: "red" }}>
-        Posts
-      </NavLink>
-      <NavLink tag={NavLinkRouter}  to="/about" activeStyle={{ fontWeight: "bold", color: "red" }}>
-        About
-      </NavLink>
-    </Nav>;
+  return ;
 };
 
-const NoMatch = ({ location }) => (
-  <div>
-    <h3>
-      No match for <code>{location.pathname}</code>
-    </h3>
-  </div>
-);
+const Home = () => <h1>Home</h1>;
+const Posts = () => <h1>Posts</h1>;
+const About = () => <h1>About</h1>;
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: "home"
+    }
+  }
   render() {
+    const { page } = this.state
     return <div className="App">
-        <Container>
-          <MenuBar />
-          <Switch>
-            <Route path="/posts" component={PostsContainer} />
-            <Route path="/about" component={About} />
-            <Route exact path="/" component={Home} />
-            <Route exact component={NoMatch} />
-          </Switch>
-        </Container>
-      </div>;
+      <Container>
+        <div>
+          <Button onClick={() => this.setState({ page: "home" })} color="link">
+            Home
+          </Button>
+          <Button onClick={() => this.setState({ page: "posts" })} color="link">
+            Posts
+          </Button>
+          <Button onClick={() => this.setState({ page: "about" })} color="link">
+            About
+          </Button>
+        </div>
+        {page === "home" && <Home />}
+        {page === "posts" && <Posts />}
+        {page === "about" && <About />}
+      </Container>
+    </div>;
   }
 }
 
