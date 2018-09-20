@@ -18,7 +18,7 @@ export default class Post extends Component {
           <CardTitle>{post.title}</CardTitle>
           <CardText>{post.body}</CardText>
           <Button tag={NavLink} to={"/posts/" + faker.helpers.slugify(post.title) + "/edit"}>
-            {post.title}
+            Edit
         </Button>
         </CardBody>
       </Card>;
